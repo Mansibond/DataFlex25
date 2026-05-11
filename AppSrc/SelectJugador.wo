@@ -15,7 +15,7 @@ Use cequipoDataDictionary.dd
 Use cjugadorDataDictionary.dd
 
 Object oSelectJugador is a cWebView
-    Set psCaption to "Jugador"
+    Set psCaption to "Jugadores"
     Set peWebViewStyle to wvsDrilldown
     Set peViewType to vtSelect
     Set piColumnCount to 12
@@ -47,19 +47,19 @@ Object oSelectJugador is a cWebView
 
         Object ojugadorNombre is a cWebColumn
             Entry_Item jugador.Nombre
-            Set psCaption to "jugador.Nombre"
+            Set psCaption to "Nombre"
             Set piWidth to 600
         End_Object 
 
         Object ojugadorApellido is a cWebColumn
             Entry_Item jugador.Apellido
-            Set psCaption to "jugador.Apellido"
+            Set psCaption to "Apellido"
             Set piWidth to 600
         End_Object 
 
         Object oequipoNombre is a cWebColumn
             Entry_Item equipo.Nombre
-            Set psCaption to "equipo.Nombre"
+            Set psCaption to "Equipo"
             Set piWidth to 1201
         End_Object 
 
