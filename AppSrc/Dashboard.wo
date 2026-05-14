@@ -29,7 +29,7 @@ Object oDashboard is a cWebView
 
     Set piMaxWidth to 1024
     
-    Set psCaption to "Dashboard"
+    Set psCaption to "Menú principal"
     Set peViewType to vtUndefined
     Set pbShowCaption to False
     Set psCSSClass to "Dashboard"
@@ -46,7 +46,7 @@ Object oDashboard is a cWebView
         Object oTiles_grp is a cWebGroup
             Set piColumnSpan to 24
             Set piColumnCount to 12
-            Set pbShowBorder to False
+            Set pbShowBorder to True
             Set pbShowCaption to False
             
             Set psCSSClass to "TilesGroup"

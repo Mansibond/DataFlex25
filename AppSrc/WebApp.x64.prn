@@ -1,5 +1,5 @@
 Compiling Program: C:\DataFlex Projects\FutbolWebApp\AppSrc\WebApp.src
-Memory Available: 44112433152
+Memory Available: 45113819136
 1>Use AllWebAppClasses.pkg
 Using pre-compiled package ALLWEBAPPCLASSES.PKG
 Including file: AllWebAppClasses.x64.pkd    (C:\Program Files\DataFlex 25.0\Pkg\AllWebAppClasses.x64.pkd)
@@ -1467,7 +1467,7 @@ Including file: Dashboard.wo    (C:\DataFlex Projects\FutbolWebApp\AppSrc\Dashbo
 37353>>>
 37353>>>    Set piMaxWidth to 1024
 37354>>>    
-37354>>>    Set psCaption to "Dashboard"
+37354>>>    Set psCaption to "Menú principal"
 37355>>>    Set peViewType to vtUndefined
 37356>>>    Set pbShowCaption to False
 37357>>>    Set psCSSClass to "Dashboard"
@@ -1484,7 +1484,7 @@ Including file: Dashboard.wo    (C:\DataFlex Projects\FutbolWebApp\AppSrc\Dashbo
 37363>>>        Object oTiles_grp is a cWebGroup
 37365>>>            Set piColumnSpan to 24
 37366>>>            Set piColumnCount to 12
-37367>>>            Set pbShowBorder to False
+37367>>>            Set pbShowBorder to True
 37368>>>            Set pbShowCaption to False
 37369>>>            
 37369>>>            Set psCSSClass to "TilesGroup"
@@ -3510,7 +3510,7 @@ Including file: SelectJugador.wo    (C:\DataFlex Projects\FutbolWebApp\AppSrc\Se
 39165>Send StartWebApp of oWebApp
 39166>
 Summary
-Memory Available: 44092190720
+Memory Available: 45094125568
 Total Warnings : 0
 Total Errors   : 0
 Total Symbols  : 25648
@@ -3518,6 +3518,6 @@ Total Resources: 0
 Total Commands : 39165
 Total Windows  : 0
 Total Pages    : 0
-Static Data    : 483785
+Static Data    : 483789
 Message area   : 263291
 Total Blocks   : 17343
