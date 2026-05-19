@@ -7,8 +7,12 @@ Use cWebPanel.pkg
 Use cWebMenuGroup.pkg
 Use cWebMenuItem.pkg
 Use cWebForm.pkg
+Use cWebButton.pkg // Añadido para el botón
+Use cWebList.pkg   // Añadido para la lista embebida
+Use cWebColumn.pkg // Añadido para las columnas de la lista
 
 Use cligaDataDictionary.dd
+Use cequipoDataDictionary.dd // Incluimos el DD de la tabla hija
 
 Object oZoomLiga is a cWebView
     Set piColumnCount to 12
@@ -22,9 +26,15 @@ Object oZoomLiga is a cWebView
     Object oliga_DD is a cligaDataDictionary
     End_Object 
 
-    Set Main_DD To oliga_DD
-    Set Server  To oliga_DD
+    // Añadido para tarea
+    //DD de equipo lo vinculo al DD de liga como servidor(genera que filtre directamente por la liga elegida)
+    Object oequipo_DD is a cequipoDataDictionary
+        Set DDO_Server to oliga_DD // Esto le dice a DataFlex: "Filtra los equipos según la liga actual"
+        Set Constrain_File to liga.File_Number //Sincroniza el filtro estricto con el padre
+    End_Object
 
+    Set Main_DD to oliga_DD
+    Set Server  to oliga_DD
 
     Object oWebMainPanel is a cWebPanel
         Set piColumnCount to 12
@@ -68,6 +78,51 @@ Object oZoomLiga is a cWebView
             Set peLabelPosition to lpTop
             Set psLabel to "Total de Equipos"
         End_Object 
+
+        //Añadido para tarea
+        // OPCIÓN 1: Botón Equipos (Salto a SelectEquipo)
+        Object oBtnVerEquipos is a cWebButton
+            Set piColumnSpan to 4
+            Set piColumnIndex to 0
+            Set psCaption to "Ver Equipos"
+            
+            WebRegisterPath ntNavigateForward oSelectEquipo 
+
+            Procedure OnClick
+                Send NavigatePath
+            End_Procedure
+        End_Object
+
+        // Añadido para tarea
+        // OPCIÓN 2: Lista embebida (Master-Detail sin cambiar de pantalla)
+        Object oListEquipos is a cWebList
+            Set piColumnSpan to 12
+            Set pbFillHeight to True
+            Set piMinHeight to 250 
+            Set Server to oequipo_DD 
+    
+            // Forzamos a que el navegador avise al servidor al mostrar la lista
+            Set pbServerOnShow to True 
+
+            Procedure OnShow
+                Forward Send OnShow
+                Send GridRefresh // Refresca las filas aplicando el filtro del DDO
+            End_Procedure
+
+            Object oequipoID is a cWebColumn
+                Entry_Item equipo.ID
+                Set psCaption to "ID"
+                Set piWidth to 86
+                Set peAlign to alignLeft
+            End_Object
+
+            Object oequipoNombre is a cWebColumn
+                Entry_Item equipo.Nombre
+                Set psCaption to "Nombre Equipo"
+                Set piWidth to 913
+            End_Object
+        End_Object
+
     End_Object 
 
     Object oActionGroup is a cWebMenuGroup
@@ -79,7 +134,6 @@ Object oZoomLiga is a cWebView
             Procedure OnClick
                 Send Request_Save
             End_Procedure
-
         End_Object 
 
         Object oEditBtn is a cWebMenuItem
@@ -89,7 +143,6 @@ Object oZoomLiga is a cWebView
                 Send ChangeEditMode True
                 Send SetActionButtons
             End_Procedure
-
         End_Object 
 
         Object oDeleteBtn is a cWebMenuItem
@@ -100,7 +153,6 @@ Object oZoomLiga is a cWebView
             Procedure OnClick
                 Send Request_Delete
             End_Procedure
-
         End_Object 
 
         Object oCancelChangesBtn is a cWebMenuItem
@@ -110,7 +162,6 @@ Object oZoomLiga is a cWebView
             Procedure OnClick
                 Send RefreshRecord
             End_Procedure
-
         End_Object 
     End_Object 
 
@@ -167,8 +218,10 @@ Object oZoomLiga is a cWebView
 
         Case End
 
+
         Send SetActionButtons
 
     End_Procedure
+    
 
-End_Object 
+End_Object
