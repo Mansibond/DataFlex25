@@ -1,0 +1,10 @@
+# Binarios
+*.exe
+Programs/*.exe
+
+# Sesiones y datos volátiles
+Data/WebAppSession.*
+Data/WebAppServerProps.*
+
+# Temporales de compilación
+*-*.up
