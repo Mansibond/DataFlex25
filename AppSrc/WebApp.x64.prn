@@ -1,5 +1,5 @@
 Compiling Program: C:\DataFlex Projects\FutbolWebApp\AppSrc\WebApp.src
-Memory Available: 35397455872
+Memory Available: 42720206848
 1>Use AllWebAppClasses.pkg
 Using pre-compiled package ALLWEBAPPCLASSES.PKG
 Including file: AllWebAppClasses.x64.pkd    (C:\Program Files\DataFlex 25.0\Pkg\AllWebAppClasses.x64.pkd)
@@ -2488,7 +2488,7 @@ Including file: hijoentrenador.fd    (C:\DataFlex Projects\FutbolWebApp\DDSrc\hi
 38248>>>            Set psLabel to "Equipo"
 38249>>>            Set pbPromptButton to True
 38250>>>
-38250>>>            WebRegisterPath ntNavigateForward oZoomEntrenador
+38250>>>            WebRegisterPath ntNavigateForward oSelectEquipo
 38256>>>
 38256>>>            Procedure OnPrompt
 38259>>>                Send NavigatePath
@@ -2503,7 +2503,7 @@ Including file: hijoentrenador.fd    (C:\DataFlex Projects\FutbolWebApp\DDSrc\hi
 38268>>>            Set psLabel to "Liga"
 38269>>>            Set pbPromptButton to True
 38270>>>
-38270>>>        WebRegisterPath ntNavigateForward oZoomEntrenador
+38270>>>        WebRegisterPath ntNavigateForward oSelectLiga
 38276>>>
 38276>>>            Procedure OnPrompt
 38279>>>                Send NavigatePath
@@ -3563,7 +3563,7 @@ Including file: SelectJugador.wo    (C:\DataFlex Projects\FutbolWebApp\AppSrc\Se
 39215>Send StartWebApp of oWebApp
 39216>
 Summary
-Memory Available: 35412361216
+Memory Available: 42690646016
 Total Warnings : 0
 Total Errors   : 0
 Total Symbols  : 25657

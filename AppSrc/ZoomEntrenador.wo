@@ -79,7 +79,7 @@ Object oZoomEntrenador is a cWebView
             Set psLabel to "Equipo"
             Set pbPromptButton to True
 
-            WebRegisterPath ntNavigateForward oZoomEntrenador
+            WebRegisterPath ntNavigateForward oSelectEquipo
 
             Procedure OnPrompt
                 Send NavigatePath
@@ -94,7 +94,7 @@ Object oZoomEntrenador is a cWebView
             Set psLabel to "Liga"
             Set pbPromptButton to True
 
-        WebRegisterPath ntNavigateForward oZoomEntrenador
+        WebRegisterPath ntNavigateForward oSelectLiga
 
             Procedure OnPrompt
                 Send NavigatePath
